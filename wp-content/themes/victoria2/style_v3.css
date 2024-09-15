@@ -2188,6 +2188,16 @@ html .hermes-slides {height: 1%;}
 	}
 }
 
+.modal-image-container {
+	gap: 10px;
+}
+.modal-image {
+	width: calc(50% - 5px);
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
 /* Tablet Landscape */
 @media screen and (max-width: 1200px) {
 
@@ -2482,6 +2492,7 @@ div#banner-content {
 }
 
 
+
 .modal {
 	position: fixed;
 	left: 0;
@@ -2533,4 +2544,56 @@ div#banner-content {
 .modal-body {
 	max-height: calc(121vh - 210px);
 	overflow-y: auto;
+}
+
+/* Additional CSS for the Fort Kochi modal */
+.modal-title {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.modal-image-container {
+	margin-bottom: 20px;
+}
+
+.modal-image {
+	width: 48%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
+.modal-footer {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.btn {
+	padding: 10px 15px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.btn-primary {
+	background-color: #007bff;
+	color: white;
+}
+
+.btn-primary:hover {
+	background-color: #0056b3;
+}
+
+/* Styles for the trigger button */
+.trigger-button {
+	padding: 10px 15px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.trigger-button:hover {
+	background-color: #0056b3;
 }
