@@ -43,6 +43,9 @@
 						<h1>
 							Discover one of the best rooms in Fort Kochi!
 						</h1>
+						<h2>
+							Exclusive Direct Booking Offers! <a href="/contact-us.html">Contact us</a></br>
+						</h2>
 					</div>
 				</div> <!-- .row -->
 				<br />
@@ -56,22 +59,42 @@
 					</div>
 				</div>
 			</div>
-				<div class="row">
-					<div class="col-xs-2 col-md-2">
-					<h2>
-						Exclusive Direct Booking Offers!</br>
-					</h2>
-					<h3>
-						<ul>
-							<li> - Min 15% discount on room rates.</li>
-							<li> - Special discounts for group bookings and long-stay guests.</li>
-							<li> - Complimentary breakfast included.</li>
-						</ul>
-					</h3>
-					</div>
-				</div>
+			<div class="row">
+				<div class="col-xs-2 col-md-2">
+				<h3>
+					<ul>
+						<li> - Min 15% discount on room rates.</li>
+						<li> - Special discounts for group bookings and long-stay guests.</li>
+						<li> - Complimentary breakfast included.</li>
+					</ul>
+				</h3>
 				</div>
 			</div>
+		</div>
+	</div>
+	</div>
+	<div class="modal" id="videoModal">
+		<div class="modal-content">
+			<div class="modal-body">
+				<span class="close-button" style="font-size: x-large;">×</span>
+				<br />
+				<div>
+				  <h1>Walkthrough Video of La Lune Homes</h1>
+				  <h2>Made by previous guests</h2>
+				</div>
+				<div class="container">
+					<div class="row">
+						<!-- New Video Section -->
+						<div class="col-xs-12 col-md-12">
+							<div class="video-container">
+								<video id="video" width="360" height="640" controls>
+									<source src="images/lalune_video_tour.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -224,13 +247,34 @@
 		<!-- end #hermes-gallery .flexslider -->
 		<script type="text/javascript">
 			function toggleModal() {
-				var modal = document.querySelector(".modal");
+				var modal = document.querySelector("#frontModal");
 				modal.classList.toggle("show-modal");
 			}
+
+			function openVideoModal() {
+				event.preventDefault()
+				var modal = document.querySelector("#videoModal");
+				modal.classList.add("show-modal");
+				var video = document.getElementById('video');
+				video.play();
+			}
+
+			function closeVideoModal() {
+				var modal = document.querySelector("#videoModal");
+				modal.classList.remove("show-modal");
+				var video = document.getElementById('video');
+				video.pause();
+			}
 			function windowOnClick(event) {
-				var modal = document.querySelector(".modal");
+				var modal = document.querySelector("#frontModal");
 				if (event.target === modal) {
 					toggleModal();
+				}
+			}
+			function windowOnClickVideo(event) {
+				var modal = document.querySelector("#videoModal");
+				if (event.target === modal) {
+					closeVideoModal();
 				}
 			}
 			jQuery(document).ready(function () {
@@ -249,12 +293,15 @@
 					touch: false,
 					animationSpeed: 500
 				});
-				var closeButton = document.querySelector(".close-button");
+				var closeButton = document.querySelector("#frontModal .close-button");
+				var closeButtonVideo = document.querySelector("#videoModal .close-button");
 
 				toggleModal();
 
 				closeButton.addEventListener("click", toggleModal);
+				closeButtonVideo.addEventListener("click", closeVideoModal);
 				window.addEventListener("click", windowOnClick);
+				window.addEventListener("click", windowOnClickVideo);
 
 			});
 		</script>
@@ -357,6 +404,15 @@
 						Free private parking is available on request. Each room is specifically designed to deliver utmost comfort with a super friendly ambiance. 
 						All rooms are spacious and airy, allowing access to natural light, and are equipped with flat TV screens and private bathrooms that provide 24-hour hot and cold water. 
 						For your convenience, you'll find free toiletries and a hairdryer in every bathroom. Each bedroom also features an individual balcony.</p>
+					
+					<p>
+						<center>
+						<h4>
+							Click <a href="" onclick="openVideoModal()">HERE!</a> to watch a video of the premises.
+						</h4>
+						</center>
+					</p>
+					
 					<p>Guests have access to a common sitting area and a pantry stocked with basic essentials like tea, coffee, milk etc. 
 						The pantry is equipped with a fridge, kettle, microwave, and RO and UV water filters. 
 						This common central space also fosters interaction among guests from different parts of the world.</p>
